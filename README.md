@@ -18,20 +18,20 @@ This project offers an in-depth analysis of the performance and profiles of 110 
 
 
 
-## Datasets
+### Datasets
 - Player Overview  - Contains player information such as name, birthdate, jersey number, etc.
 - Player Statistics  -  In-depth career statistics for players, including appearances, goals, and assists.
 - Team Info -  Teams and their affiliations with specific leagues.
 - League Info - Overview of the 5 leagues.
 - Geographical Data - Provides geographical information on the countries of origin for the players.
 
-## Tools
+### Tools
 - Excel - Used for data creation and initial data management.
   - [Download Data Here](https://www.kaggle.com/datasets/collinsemensah/europes-top-5-league-player-analysis)
 - Postgres SQL - Imported the Excel Data into Postgres SQL for Data Analysis and quering.
     - [Download Postgres SQL Here](https://www.postgresql.org/download/windows/)
  
-## Skills Applied
+### Skills Applied
 - JOINs
 - Aggregations
 - CTEs
@@ -52,7 +52,7 @@ This project offers an in-depth analysis of the performance and profiles of 110 
 12. How many players with over 150 games have never received a red card in their careers?
 13. Which players have been with their current club for at least 5 years?
 
-## Interesting Queries
+### Interesting Queries
 Q4- How does the market value of players vary among the leagues?
 
 ```` SQL
@@ -93,7 +93,7 @@ where
   EXTRACT (YEAR FROM CURRENT_DATE) - Year_Joined_Club >=5
 ````
 
-## Summary of Findings
+### Summary of Findings
 - Most players in the dataset play in the Premier League, followed by Ligue 1 and Bundesliga, with Seria A and La Liga having the fewest players.
 - Over 70% of the players are from Europe, with France and England leading in representation, while North America has the lowest number of representation.
 - The Premier League has the highest total and average market value of players, with Ligue 1 ranked lowest in both. Four of the highest-valued individual players are from either the Premier League or La Liga.
