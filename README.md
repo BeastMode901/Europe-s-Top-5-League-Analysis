@@ -38,19 +38,19 @@ This project analyzes the performance and profiles of 110 active soccer players 
 - Windows Functions
 
 ### Questions Explored 
-  1. How are players distributed across the 5 leagues?
-  2. How does the distribution of players vary by continent?
-  3. Which country has the most players in this analysis?
-  4. How does the market value of players compare across the leagues?
-  5. How are teams ranked by their players' average and total market values?
-  6. How does the average market value of players vary across different age groups?
-  7. What are the rankings of players based on their years of playing professionally?
-  8. What is the average length of a playing career based on positions?
-  9. Which forward with over 200 career games has scored the most goals?
-  10. Which midfielder with over 200 career appearances has the most assists?
-  11. Which defender with over 200 career games has received the most disciplinary cards?
-  12. How many players who have played over 150 games have never received a red card in their playing career?
-  13. Which players have played for their current club for at least 5 years?
+1. What is the distribution of players across the top 5 football leagues?
+2. How does player distribution differ by continent?
+3. Which country has the highest representation of players in this dataset?
+4. How does the market value of players vary among the top leagues?
+5. How are teams ranked based on their players' average and total market values?
+6. How does the average market value of players differ across various age groups?
+7. What are the player rankings based on the number of years they've played professionally?
+8. What is the average length of a professional playing career by position?
+9. Among forwards with over 200 career games, who has scored the most goals?
+10. Which midfielder with over 200 career appearances has the highest number of assists?
+11. Among defenders with more than 200 career games, who has accumulated the most disciplinary cards?
+12. How many players with over 150 games have never received a red card in their careers?
+13. Which players have been with their current club for at least 5 years?
 
 ### Interesting Queries
 Q4- How does the market value of players compare across the leagues?
