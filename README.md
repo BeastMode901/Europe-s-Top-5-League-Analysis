@@ -38,26 +38,22 @@ This project analyzes the performance and profiles of 110 active soccer players 
 - Windows Functions
 
 ### Questions Explored 
-  1. What is the Distribution of Players among the  Leagues?
+  1. How are players distributed across the 5 leagues?
   2. How does the distribution of players vary by continent?
-  3. How are players from different continents distributed across the leagues?
-  4. How does the market value of players compare across the 5 leagues?
-  5. How does the market value of players compare across continents?
+  3. Which country has the most players in this analysis?
+  4. How does the market value of players compare across the leagues?
+  5. How are teams ranked by their players' average and total market values?
   6. How does the average market value of players vary across different age groups?
-  7.  How do teams within the 5 leagues rank based on their lowest, highest, average, and total market values?
-  8.  What is the ranking of forwards based on their goal-to-game ratio?
-  9.  What is the ranking of midfielders based on their assists-to-game ratio?
-  10.  What is the ranking of defenders based on their cards-to-game- ratio?
-  11.  Which players have achieved over 100 games, 100 goals, and 100 assists?
-  12.  How many players have never received a red card in their playing career?
-  13.  How are teams ranked based on the total number of career goals scored, assists made, and disciplinary cards received by their players?
-  14.  How are the leagues ranked according to the total number of career goals scored, assists made, and disciplinary cards received by their players?
-  15.  How do the average age, youngest, and oldest players vary across the leagues?
-  16.  What are the rankings of players within their teams and all players based on their years of professional experience?
-  17.  Which players have been playing for their current club for at least 5 years?
+  7. What are the rankings of players based on their years of playing professionally?
+  8. What is the average length of a playing career based on positions?
+  9. Which forward with over 200 career games has scored the most goals?
+  10. Which midfielder with over 200 career appearances has the most assists?
+  11. Which defender with over 200 career games has received the most disciplinary cards?
+  12. How many players who have played over 150 games have never received a red card in their playing career?
+  13. Which players have played for their current club for at least 5 years?
 
 ### Interesting Queries
-Q4- How does the market value of players compare across the 5 leagues?
+Q4- How does the market value of players compare across the leagues?
 
 ```` SQL
  	WITH Leage_Market_Value AS (
@@ -68,19 +64,23 @@ Q4- How does the market value of players compare across the 5 leagues?
 			)
 		SELECT 
 		League_Name,
-		'€' || To_CHAR(MIN(Market_Value), 'FM99,999,999,990.00') AS "Lowest Market Value", -- 'E' || To_Char, 'FM99,999,999,990.00' : This expression formats the market value as a Euro Currency string with 2 commas and 2 decimal places
+		'€' || To_CHAR(MIN(Market_Value), 'FM99,999,999,990.00') AS "Lowest Market Value", -- 'E' || To_Char, 'FM99,999,999,990.00': This expression formats the market value as a Euro Currency string with 2 commas and 2 decimal places
 		'€' || To_CHAR(Max(Market_Value), 'FM99,999,999,990.00') AS "Highest Market Value", 	
 		'€' || To_CHAR(SUM(Market_Value), 'FM99,999,999,990.00') AS "Sum Market Value", 	
 		'€' || To_CHAR(ROUND(AVG(Market_Value),2),'FM999,999,999,990.00')  AS "Average Market Value" FROM Leage_Market_Value 
 ````
-Q11- Which players have achieved over 100 games, 100 goals, and 100 assists?
+Q7- What are the rankings of players based on their years of playing professionally?
 ```` SQL
-Select Full_Name
-FROM Player P
-Inner Join Career_Stats CS ON CS.Player_ID = P.Player_ID
-WHERE Games >= 100 AND Goals >= 100 AND Assists >= 100;
+Select full_name, 
+Team_Name, 
+Extract(YEAR FROM CURRENT_DATE) - Debut_career AS Years_Playing_Professional,
+RANK () OVER (PARTITION BY t.Team_ID ORDER BY Extract(YEAR FROM CURRENT_DATE) - Debut_career DESC) AS Career_Length_Rank_Within_Team,
+RANK () OVER (ORDER BY Extract(YEAR FROM CURRENT_DATE) - Debut_career DESC) AS Overal_Ranking
+FROM player P
+INNER JOIN Team T ON T.Team_ID = P.Team_ID
+ORDER BY Team_Name, Career_Length_Rank_Within_Team;
 ````
-Q17- Which players have been playing for their current club for at least 5 years?
+Q13- Which players have played for their current club for at least 5 years?
 ```` SQL
 SELECT
     full_name,
