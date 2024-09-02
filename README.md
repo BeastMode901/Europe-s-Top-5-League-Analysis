@@ -14,7 +14,7 @@
 ### Project Overview
 
 
-This project analyzes the performance and profiles of 110 active soccer players from Europe’s top five leagues: Premier League, La Liga, Bundesliga, Serie A, and Ligue 1. By analazying these metrics, we seek to identify how they compare across teams, league, and continents. 
+This project offers an in-depth analysis of the performance and profiles of 110 active soccer players from Europe's top five leagues: the Premier League, La Liga, Bundesliga, Serie A, and Ligue 1. It examines key metrics such as player distribution across leagues, countries, and continents, market values across age groups, and player rankings based on experience and career achievements. By analyzing these factors, the project aims to reveal insights into how players compare across different teams, leagues, and regions, highlighting patterns and trends that influence their performance and market value.
 
 
 
@@ -61,13 +61,15 @@ Q4- How does the market value of players compare across the leagues?
 		FROM league L
 		INNER JOIN Team T ON T.League_ID = L.League_ID
 		INNER JOIN Player P ON P.Team_ID = T.Team_ID
-			)
+					)
 		SELECT 
 		League_Name,
-		'€' || To_CHAR(MIN(Market_Value), 'FM99,999,999,990.00') AS "Lowest Market Value", -- 'E' || To_Char, 'FM99,999,999,990.00': This expression formats the market value as a Euro Currency string with 2 commas and 2 decimal places
+		'€' || To_CHAR(MIN(Market_Value), 'FM99,999,999,990.00') AS "Lowest Market Value", 
 		'€' || To_CHAR(Max(Market_Value), 'FM99,999,999,990.00') AS "Highest Market Value", 	
 		'€' || To_CHAR(SUM(Market_Value), 'FM99,999,999,990.00') AS "Sum Market Value", 	
-		'€' || To_CHAR(ROUND(AVG(Market_Value),2),'FM999,999,999,990.00')  AS "Average Market Value" FROM Leage_Market_Value 
+		'€' || To_CHAR(ROUND(AVG(Market_Value),2),'FM999,999,999,990.00')  AS "Average Market Value" 
+		FROM Leage_Market_Value 
+		GROUP BY League_Name;
 ````
 Q7- What are the rankings of players based on their years of playing professionally?
 ```` SQL
