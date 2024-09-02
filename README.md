@@ -71,7 +71,7 @@ Q4- How does the market value of players vary among the leagues?
 		FROM Leage_Market_Value 
 		GROUP BY League_Name;
 ````
-Q7- What are the rankings of players based on their years of playing professionally?
+Q7- What are the player rankings based on the number of years they've played professionally?
 ```` SQL
 Select full_name, 
 Team_Name, 
@@ -82,7 +82,7 @@ FROM player P
 INNER JOIN Team T ON T.Team_ID = P.Team_ID
 ORDER BY Team_Name, Career_Length_Rank_Within_Team;
 ````
-Q13- Which players have played for their current club for at least 5 years?
+Q13- Which players have been with their current club for at least 5 years?
 ```` SQL
 SELECT
     full_name,
