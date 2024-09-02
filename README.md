@@ -53,7 +53,7 @@ This project offers an in-depth analysis of the performance and profiles of 110 
 13. Which players have been with their current club for at least 5 years?
 
 ### Interesting Queries
-Q4- How does the market value of players compare across the leagues?
+Q4- How does the market value of players vary among the leagues?
 
 ```` SQL
  	WITH Leage_Market_Value AS (
