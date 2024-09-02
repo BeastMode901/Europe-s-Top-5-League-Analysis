@@ -1,6 +1,6 @@
 
 
--- Question Solutions:
+-- Analysis Solutions:
 
 -- 1. What is the distribution of players across the 5 leagues?
 	WITH League_Distribution AS (
