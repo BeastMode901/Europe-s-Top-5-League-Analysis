@@ -2,7 +2,7 @@
 
 			Questions Explored:
 
-1. What is the distribution of players across the top 5 football leagues?
+1. What is the distribution of players across the 5 leagues?
 2. How does player distribution differ by continent?
 3. Which country has the highest representation of players in this dataset?
 4. How does the market value of players vary among the leagues?
