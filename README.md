@@ -43,9 +43,9 @@ This project provides a comprehensive analysis of 110 player profiles across Eur
 6. How does the average market value of players differ across various age groups?
 7. What are the player rankings based on the number of years they've played professionally?
 8. What is the average length of a professional playing career by position?
-9. Among forwards with over 200 career games, who has scored the most goals?
-10. Which midfielder with over 200 career appearances has the highest number of assists?
-11. Among defenders with more than 200 career games, who has accumulated the most disciplinary cards?
+9. Who are the top 5 forwards with over 200 career games that have scored the most goals?
+10. Who are the top 10 midfielders with the most career assists, having played 200 or more career games?
+11. Among defenders with more than 200 career games, which player has accumulated the most disciplinary cards?
 12. How many players with over 150 games have never received a red card in their careers?
 13. Which players have been with their current club for at least 5 years?
 
@@ -54,7 +54,7 @@ Q4- How does the market value of players vary among the leagues?
 
 ```` SQL
  	WITH Leage_Market_Value AS (
-		SELECT full_name, League_Name, Market_Value_In_Millions AS Market_Value
+		SELECT Name, League_Name, Market_Value
 		FROM league L
 		INNER JOIN Team T ON T.League_ID = L.League_ID
 		INNER JOIN Player P ON P.Team_ID = T.Team_ID
@@ -70,34 +70,37 @@ Q4- How does the market value of players vary among the leagues?
 ````
 Q7- What are the player rankings based on the number of years they've played professionally?
 ```` SQL
-Select full_name, 
-Team_Name, 
-Extract(YEAR FROM CURRENT_DATE) - Debut_career AS Years_Playing_Professional,
-RANK () OVER (PARTITION BY t.Team_ID ORDER BY Extract(YEAR FROM CURRENT_DATE) - Debut_career DESC) AS Career_Length_Rank_Within_Team,
-RANK () OVER (ORDER BY Extract(YEAR FROM CURRENT_DATE) - Debut_career DESC) AS Overal_Ranking
-FROM player P
+Select
+	Name,
+	Team_Name, 
+	Extract(YEAR FROM CURRENT_DATE) - Career_Debut AS Years_Playing_Professional,
+	RANK () OVER (PARTITION BY t.Team_ID ORDER BY Extract(YEAR FROM CURRENT_DATE) - 		Career_Debut DESC) AS Career_Length_Rank_Within_Team,
+	RANK () OVER (ORDER BY Extract(YEAR FROM CURRENT_DATE) - Career_Debut DESC) AS Overall_Ranking
+FROM
+	player P
 INNER JOIN Team T ON T.Team_ID = P.Team_ID
 ORDER BY Team_Name, Career_Length_Rank_Within_Team;
 ````
 Q13- Which players have been with their current club for at least 5 years?
 ```` SQL
 SELECT
-    full_name,
-   EXTRACT(YEAR FROM CURRENT_DATE) - Year_Joined_Club Club_Duration
+    Name,
+   EXTRACT(YEAR FROM CURRENT_DATE) - Year_Joined_Club AS Current_Club_Duration
 FROM
-  Player p
+  Player 
 where
   EXTRACT (YEAR FROM CURRENT_DATE) - Year_Joined_Club >=5
+ORDER BY Current_Club_Duration DESC;
 ````
 
 ### Summary of Findings
-- Most players in the dataset play in the Premier League, followed by Ligue 1 and Bundesliga, with Seria A and La Liga having the fewest players.
-- Over 70% of the players are from Europe, with France leading in representation, while North America has the lowest number of players featured.
-- The Premier League has the highest total and average market value of players, with Ligue 1 ranked lowest in both. Four of the highest-valued individual players are from either the Premier League or La Liga.
-- Real Madrid has the highest average and total market value, followed by Manchester City; Sevilla ranks lowest in both
+- The dataset shows that the majority of players are from the Premier League, followed by Ligue 1 and Bundesliga. Serie A and La Liga have the fewest players represented.
+- Over 70% of the players are from Europe, with France leading in representation. North America has the fewest players featured in the dataset.
+- The Premier League leads in both total and average market value of players, while Ligue 1 ranks the lowest. Four of the highest-valued players are from the Premier League or La Liga.
+- Real Madrid has the highest average and total market value among clubs, followed by Manchester City; Sevilla ranks lowest in both metrics.
 - Younger players (17-24) have the highest average market value, followed by mid-age players (25-29), with seniors (30+) at the bottom.
-- Defenders have the longest average career length.
-- Jesús Navas of Sevilla has the longest playing career at 21 years, while Lamine Yamal and Pau Cabarsi of Barcelona have the shortest at 1 year respectively.
+- Defenders have the longest average career duration.
+- Jesús Navas of Sevilla holds the longest playing career at 21 years, while Lamine Yamal and Pau Cubarsi of Barcelona have the shortest careers, thus far, at just 1 year each.
 - Among players with over 200 career games, Kevin De Bruyne of Manchester City has the most assists among midfielders, Robert Lewandowski of Barcelona has the most goals among forwards,  and Dani Carvajal of Real Madrid has the most disciplinary cautions among defenders.
 - 25 players have played over 150 games without receiving a red card.
 - 21 Players have been with their current club for at least 5 years, with Dani Carvajal having the longest tenure at 11 years with Real Madrid.
