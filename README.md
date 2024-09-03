@@ -59,6 +59,7 @@ Q4- How does the market value of players vary among the leagues?
 		INNER JOIN Team T ON T.League_ID = L.League_ID
 		INNER JOIN Player P ON P.Team_ID = T.Team_ID
 					)
+			 ---Side Note: '€' || To_CHAR('FM99,999,999,990.00'):  Formats the value with a Euro symbol and two decimal places
 		SELECT 
 		League_Name,
 		'€' || To_CHAR(MIN(Market_Value), 'FM99,999,999,990.00') AS "Lowest Market Value", 
