@@ -45,11 +45,12 @@ This project provides a comprehensive analysis of 110 active player profiles acr
 6. How does the average market value of players differ across various age groups?
 7. What are the player rankings based on the number of years they've played professionally?
 8. What is the average length of a professional playing career by position?
-9. Who are the top 5 forwards with over 200 career games that have scored the most goals?
-10. Who are the top 10 midfielders with the most career assists, having played 200 or more career games?
-11. Among defenders with more than 200 career games, which player has accumulated the most disciplinary cards?
-12. How many players with over 150 games have never received a red card in their careers?
-13. Which players have been with their current club for at least 5 years?
+9. Who are the top 10 players with the most career goals?
+10. Who are the top 20 players with the most career assists?
+11. Who are the top 10 players with the most cards accumulated?
+12. How many players with over 150 games have never received a red card in their career?
+13. Which players have been with their club for at least 5 years?
+14. Who are the top 5 most expensive players?
 
 ### Interesting Queries
 Q4- How does the market value of players vary among the leagues?
@@ -84,7 +85,7 @@ FROM
 INNER JOIN Team T ON T.Team_ID = P.Team_ID
 ORDER BY Team_Name, Career_Length_Rank_Within_Team;
 ````
-Q13- Which players have been with their current club for at least 5 years?
+Q13- Which players have been with their club for at least 5 years?
 ```` SQL
 SELECT
     Name,
