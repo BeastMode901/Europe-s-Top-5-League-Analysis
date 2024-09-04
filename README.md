@@ -16,7 +16,7 @@ This project provides a comprehensive analysis of 110 active player profiles acr
 
 ### Datasets
 - Player Profile: Details such as name, birthdate, jersey number, and market value.
-- Player Statistics: Metrics including games played, goals, and assists.
+- Player Statistics: Metrics including games, goals, and assists.
 - Team Info: Information about the team and their league affiliation.
 - League Info: Names of the leagues.
 - Geographical Data: Information on the players' countries.
