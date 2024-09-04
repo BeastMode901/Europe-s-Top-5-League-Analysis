@@ -98,14 +98,14 @@ ORDER BY Current_Club_Duration DESC;
 ````
 
 ### Summary of Findings
-- The dataset shows that the majority of players are from the Premier League, followed by Ligue 1 and Bundesliga. Serie A and La Liga have the fewest players represented.
+- The dataset shows that the majority of players play in the Premier League, followed by Ligue 1 and Bundesliga. Serie A and La Liga have the fewest players represented.
 - Over 70% of the players are from Europe, with France leading in representation. North America has the fewest players featured in the dataset.
 - The Premier League leads in both total and average market value of players, while Ligue 1 ranks the lowest. Four of the highest-valued players are from the Premier League or La Liga.
 - Real Madrid has the highest average and total market value among clubs, followed by Manchester City; Sevilla ranks lowest in both metrics.
 - Younger players (17-24) have the highest average market value, followed by mid-age players (25-29), with seniors (30+) at the bottom.
 - Defenders have the longest average career duration.
 - Jesús Navas of Sevilla holds the longest playing career at 21 years, while Lamine Yamal and Pau Cubarsi of Barcelona have the shortest careers, thus far, at just 1 year each.
-- Among players with over 200 career games, Kevin De Bruyne of Manchester City has the most assists among midfielders, Robert Lewandowski of Barcelona has the most goals among forwards,  and Dani Carvajal of Real Madrid has the most disciplinary cautions among defenders.
+- Robert Lewandowski of Barcelona leads all players for most career goals; Kevin De Bruyne of Manchester City for the most career assists; and Granit Xhaka of Bayer Leverkusen for the most disciplinary cautions.
 - 25 players have played over 150 games without receiving a red card.
 - 21 Players have been with their current club for at least 5 years, with Dani Carvajal having the longest tenure at 11 years with Real Madrid.
 
