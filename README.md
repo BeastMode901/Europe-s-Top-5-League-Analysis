@@ -12,7 +12,7 @@
 
 
 ### Project Overview
-This project provides a comprehensive analysis of 110 active player profiles across Europe’s top five leagues: Premier League, La Liga, Bundesliga, Serie A, and Ligue 1. The project examines players' age, market value, and career statistics to compare how these metrics vary across teams, leagues, and other players.
+This project provides a comprehensive analysis of 110 active player profiles across Europe’s top five leagues: Premier League, La Liga, Bundesliga, Serie A, and Ligue 1. The project examines players' age, market value, and career statistics to compare how these metrics vary across continents, teams, leagues, and other players.
 
 ### Datasets
 - Player Profile: Details such as name, birthdate, jersey number, and market value.
