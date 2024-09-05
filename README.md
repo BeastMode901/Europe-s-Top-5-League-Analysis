@@ -34,7 +34,11 @@ This project provides a comprehensive analysis of 110 active player profiles acr
 - JOINs
 - Aggregations
 - CTEs
-- Windows Functions
+- Window Functions
+- Case Statements
+- Date Functions
+- Grouping and Sorting
+  
 
 ### Questions Explored 
 1. What is the distribution of players across the 5 leagues?
