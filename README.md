@@ -25,7 +25,7 @@ This project provides a comprehensive analysis of 110 active player profiles acr
 ### Tools
 - Excel - Used for data creation and initial data management.
   - [Download Data Here](https://www.kaggle.com/datasets/collinsemensah/europes-top-5-league-player-analysis)
-- Postgres SQL - Imported the Excel Data into Postgres SQL for data cleaning and analysis.
+- PostgreSQL - Imported the Excel Data into Postgres SQL for data cleaning and analysis.
     - [Download Postgres SQL Here](https://www.postgresql.org/download/windows/)
 - Power BI - Created visuals for my data.
   	- [Download Power BI Here](https://www.microsoft.com/en-us/power-platform/products/power-bi/downloads)
